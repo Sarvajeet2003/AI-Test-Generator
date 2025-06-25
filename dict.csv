@@ -1,0 +1,7 @@
+field_name,data_type,description,allowed_values,required,example
+user_id,integer,Unique user identifier,,true,12345
+username,string,User's login name,,true,johndoe
+email,string,User's email address,Must be valid email format,true,john@example.com
+age,integer,User's age,"18-120",false,25
+signup_date,date,Date user signed up,YYYY-MM-DD format,true,2023-01-01
+is_active,boolean,User account status,"true,false",true,true

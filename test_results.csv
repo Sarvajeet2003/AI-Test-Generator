@@ -1,0 +1,101 @@
+field_name,test_case_id,test_case_name,test_description,test_type,validation_rule,expected_result,status,actual_result,details
+user_id,TC_001,Valid user_id - integer,Validates if user_id is an integer.,data_type,Integer type check,Test passes if user_id is an integer.,Passed,All user_ids in the sample are integers.,"The dataset sample contains only integer values for user_id, satisfying the validation rule of being an integer type."
+user_id,TC_002,Invalid user_id - string,Validates if user_id is not a string.,data_type,Integer type check,Test fails if user_id is a string.,Passed,user_id is an integer.,"The dataset sample shows that user_id is an integer type.  The test case expects a failure if user_id is a string; therefore, the test passes because the data conforms to the expectation."
+user_id,TC_003,Missing user_id,Validates if user_id is required.,required,Field presence check,Test fails if user_id is missing.,Failed,user_id field is present,The dataset sample contains the user_id field.  The test case expected the field to be missing.
+username,TC_004,Valid username - string,Validates if username is a string.,data_type,String type check,Test passes if username is a string.,Passed,All usernames in the sample dataset are strings.,"The validation rule checks if the 'username' field is a string.  The dataset sample contains only string values for usernames ('johndoe', 'mikebrown'), satisfying the validation rule. Therefore, the test case passes."
+username,TC_005,Invalid username - integer,Validates if username is not an integer.,data_type,String type check,Test fails if username is an integer.,Passed,All usernames are strings.,"The dataset sample contains only string values for usernames, satisfying the validation rule.  No integer usernames were found."
+username,TC_006,Missing username,Validates if username is required.,required,Field presence check,Test fails if username is missing.,Failed,Username field is present in the dataset.,"The dataset sample contains usernames, therefore the test case 'Missing username' which expects a missing username fails."
+email,TC_007,Valid email format,Validates if email is a valid email format.,format,"Email format validation (e.g., regex)",Test passes if email matches valid format.,Failed,Only one of the two emails in the dataset sample matches a valid email format.,"The dataset contains 'john@example.com' which is a valid email and 'notanemail' which is not. The test case expects all emails to be valid, therefore it fails."
+email,TC_008,Invalid email format,Validates if email is not a valid email format.,format,"Email format validation (e.g., regex)",Test fails if email does not match valid format.,Failed,Invalid email detected.,"The dataset contains 'notanemail', which is not a valid email format.  The test case 'Invalid email format' expected to fail when an invalid email is provided. The test case passed because an invalid email was found in the dataset."
+email,TC_009,Missing email,Validates if email is required.,required,Field presence check,Test fails if email is missing.,Failed,Email field contains data.,"The dataset sample contains email addresses, hence the test case 'Missing email' fails because the email field is not missing."
+age,TC_010,Valid age within range,Validates if age is within the allowed range (18-120).,range,Age between 18 and 120,Test passes if age is within range.,Passed,All ages in the sample dataset are within the valid range.,"The dataset sample contains ages 25 and 35, both of which fall within the specified range of 18-120.  Therefore, the test case 'Valid age within range' passes."
+age,TC_011,Invalid age below range,Validates if age is not below the allowed range.,range,Age between 18 and 120,Test fails if age is below range.,Passed,All ages in the sample dataset are within the allowed range.,"The dataset sample contains ages 25 and 35, both of which are within the valid range of 18-120 as defined in the validation rule. Therefore, the test case, which expects a failure if age is below the range, passes because no such violation is found."
+age,TC_012,Invalid age above range,Validates if age is not above the allowed range.,range,Age between 18 and 120,Test fails if age is above range.,Passed,All ages in the sample dataset are within the allowed range.,"The provided dataset sample contains ages 25 and 35, both of which fall within the specified range of 18 to 120.  Therefore, the test case 'Invalid age above range' passes."
+age,TC_013,Missing age,Validates if age is a required field.,required,Field presence check,Test passes if age is missing (not required).,Failed,Age field is present in the dataset.,"The test case expects the 'age' field to be missing, but the dataset sample shows that it exists.  The validation rule 'Field presence check' failed because the field is present."
+signup_date,TC_014,Valid signup_date format,Validates if signup_date is in YYYY-MM-DD format.,format,Date format validation (YYYY-MM-DD),Test passes if date is in correct format.,Passed,All dates in the sample are in YYYY-MM-DD format.,"The provided dataset sample contains only dates formatted as YYYY-MM-DD.  All dates matched the expected format specified in the validation rule. Therefore, the test case passed."
+signup_date,TC_015,Invalid signup_date format,Validates if signup_date is not in YYYY-MM-DD format.,format,Date format validation (YYYY-MM-DD),Test fails if date is not in correct format.,Passed,All dates in the sample dataset are in YYYY-MM-DD format.,"The test case 'Invalid signup_date format' checks if the signup_date field is not in YYYY-MM-DD format.  The provided dataset sample contains only dates in the specified format. Therefore, the test case passes because no invalid date formats were found."
+signup_date,TC_016,Missing signup_date,Validates if signup_date is required.,required,Field presence check,Test fails if signup_date is missing.,Error,Test execution failed,"Error parsing AI response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-1.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 15
+}
+, links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, retry_delay {
+  seconds: 24
+}
+]. Raw response: {""status"": ""Passed"", ""actual_result"": ""All dates in the sample dataset are in YYYY-MM-DD format."", ""details"": ""The test case 'Invalid signup_date format' checks if the signup_date field is not in YYYY-MM-DD format.  The provided dataset sample contains only dates in the specified format. Therefore, the test case passes because no invalid date formats were found.""}"
+is_active,TC_017,Valid is_active - true,Validates if is_active is a boolean (true).,allowed_values,Boolean value check (true/false),Test passes if is_active is true or false.,Error,Test execution failed,"Error parsing AI response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-1.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 15
+}
+, links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, retry_delay {
+  seconds: 22
+}
+]. Raw response: {""status"": ""Passed"", ""actual_result"": ""All dates in the sample dataset are in YYYY-MM-DD format."", ""details"": ""The test case 'Invalid signup_date format' checks if the signup_date field is not in YYYY-MM-DD format.  The provided dataset sample contains only dates in the specified format. Therefore, the test case passes because no invalid date formats were found.""}"
+is_active,TC_018,Valid is_active - false,Validates if is_active is a boolean (false).,allowed_values,Boolean value check (true/false),Test passes if is_active is true or false.,Error,Test execution failed,"Error parsing AI response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-1.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 15
+}
+, links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, retry_delay {
+  seconds: 22
+}
+]. Raw response: {""status"": ""Passed"", ""actual_result"": ""All dates in the sample dataset are in YYYY-MM-DD format."", ""details"": ""The test case 'Invalid signup_date format' checks if the signup_date field is not in YYYY-MM-DD format.  The provided dataset sample contains only dates in the specified format. Therefore, the test case passes because no invalid date formats were found.""}"
+is_active,TC_019,Invalid is_active - string,Validates if is_active is not a string.,allowed_values,Boolean value check (true/false),Test fails if is_active is a string.,Error,Test execution failed,"Error parsing AI response: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. [violations {
+  quota_metric: ""generativelanguage.googleapis.com/generate_content_free_tier_requests""
+  quota_id: ""GenerateRequestsPerMinutePerProjectPerModel-FreeTier""
+  quota_dimensions {
+    key: ""model""
+    value: ""gemini-1.5-flash""
+  }
+  quota_dimensions {
+    key: ""location""
+    value: ""global""
+  }
+  quota_value: 15
+}
+, links {
+  description: ""Learn more about Gemini API quotas""
+  url: ""https://ai.google.dev/gemini-api/docs/rate-limits""
+}
+, retry_delay {
+  seconds: 21
+}
+]. Raw response: {""status"": ""Passed"", ""actual_result"": ""All dates in the sample dataset are in YYYY-MM-DD format."", ""details"": ""The test case 'Invalid signup_date format' checks if the signup_date field is not in YYYY-MM-DD format.  The provided dataset sample contains only dates in the specified format. Therefore, the test case passes because no invalid date formats were found.""}"
+is_active,TC_020,Missing is_active,Validates if is_active is required.,required,Field presence check,Test fails if is_active is missing.,Failed,is_active field is present in the dataset.,"The dataset sample contains the 'is_active' field, contradicting the expectation that it should be missing for the test to pass.  The test case expects the field to be absent for a successful validation, but it's present in the sample data."

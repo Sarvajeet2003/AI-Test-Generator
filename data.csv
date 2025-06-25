@@ -1,0 +1,3 @@
+user_id,username,email,age,signup_date,is_active
+1,johndoe,john@example.com,25,2023-01-01,true
+5,mikebrown,notanemail,35,2023-05-30,false
